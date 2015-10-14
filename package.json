@@ -1,0 +1,33 @@
+{
+  "name": "rapid-proto",
+  "version": "0.0.1",
+  "description": "create rapid prototypes with a single command",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "repository": "https://github.com/silviopaganini/rapid-proto.git"
+  },
+  "bin": {
+    "rp": "index.js"
+  },
+  "keywords": [
+    "rapid",
+    "prototype",
+    "command",
+    "line",
+    "node",
+    "threejs"
+  ],
+  "author": "Silvio Paganini <silvio@fluuu.id>",
+  "license": "ISC",
+  "bugs": "",
+  "homepage": "https://github.com/silviopaganini/rapid-proto#readme",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "jsonfile": "^2.2.3",
+    "shelljs": "^0.5.3"
+  }
+}
