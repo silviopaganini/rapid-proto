@@ -1,3 +1,5 @@
+[![npm version](https://badge.fury.io/js/rapid-proto.svg)](https://badge.fury.io/js/rapid-proto)
+
 #Rapid prototype command tool
 
 Create prototypes boilerplates running one line of code on your terminal
