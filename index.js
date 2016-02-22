@@ -106,8 +106,6 @@ function continueInstall(err)
     console.log("Installing dependencies...".green);
     shelljs.exec('npm install');
     console.log("\nReady to fly =)\n".black.inverse);
-    shelljs.exec("open -a 'Sublime Text' .");
-    shelljs.exec("/usr/bin/open -a \"/Applications/Google Chrome.app\" 'http://localhost:9966'");
     console.log("Starting local server".green.bold);
     shelljs.exec('npm start');
 }

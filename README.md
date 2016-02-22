@@ -17,7 +17,8 @@ Need to install globally in order to have the command available everywhere.
 ###Usage:
 
 ```bash
-rp [prototypeName]
+rp -n [prototypeName] -v [budo or jspm]
+rp --help
 ```
 
 ### Boilerplate
@@ -25,7 +26,7 @@ rp [prototypeName]
 [https://github.com/silviopaganini/rapid-prototype](https://github.com/silviopaganini/rapid-prototype)
 
 
-#### Thoughts? 
+#### Thoughts?
 Suggestions are always welcome
 
 [npm-image]: https://img.shields.io/npm/v/rapid-proto.svg?style=flat-square
