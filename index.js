@@ -4,12 +4,47 @@ var shelljs  = require('shelljs');
 var jsonfile = require('jsonfile')
 var colors   = require('colors');
 var fs       = require('fs');
+var args     = require('args');
 
-var protoName = process.argv.slice(2)[0];
+var options = args.Options.parse([
+  {
+    name      : 'protoName',
+    shortName : 'n',
+    help      : "prototype name",
+  },
+  {
+    name         : 'version',
+    shortName    : 'v',
+    help         : "budo/npm or jspm",
+    defaultValue : 'budo'
+  },
+  {
+    name         : 'help',
+    shortName    : 'h',
+    help         : "show instructions",
+  }
+]);
+
+var initArgs = process.argv.slice(2)[0];
+
+var protoName, params;
+
+if(initArgs == '-h' || initArgs == '--help')
+{
+    console.log('');
+    console.log(options.getHelp());
+    shelljs.exit(1);
+} else if(initArgs.indexOf('-') == -1) {
+  protoName = initArgs
+} else {
+  params = args.parser(process.argv).parse(options);
+  protoName = params.protoName;
+}
+
 if(!protoName)
 {
-  shelljs.echo('Need to specify the folder name');
-  shelljs.exit(1);   
+  shelljs.echo('Need to specify the prototype name');
+  shelljs.exit(1);
 }
 
 console.log("Starting new prototype: ".green + protoName.blue)
@@ -19,7 +54,10 @@ if (!shelljs.which('git')) {
   return;
 }
 
-if(shelljs.exec("git clone https://github.com/silviopaganini/rapid-prototype.git " + protoName).code !==0)
+var versionOfPrototype = params.version;
+var urlToPull = versionOfPrototype == 'budo' ? "https://github.com/silviopaganini/rapid-prototype.git" : "https://github.com/silviopaganini/rapid-prototyping-jspm.git";
+
+if(shelljs.exec("git clone " + urlToPull + " " + protoName).code !==0)
 {
     console.log("Error: git pull failed".red);
     return;

@@ -1,6 +1,6 @@
 {
   "name": "rapid-proto",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "create rapid prototypes with a single command",
   "main": "index.js",
   "scripts": {
@@ -26,6 +26,7 @@
   "bugs": "",
   "homepage": "https://github.com/silviopaganini/rapid-proto#readme",
   "dependencies": {
+    "args": "0.0.3",
     "colors": "^1.1.2",
     "jsonfile": "^2.2.3",
     "shelljs": "^0.5.3"
