@@ -32,21 +32,25 @@ if(process.argv.length >= 3)
    initArgs = process.argv.slice(2);
 
 } else {
-  console.log('');
-  console.log("you need to specify a project name");
+  console.log("you need to specify a project name".red);
   shelljs.exit(1);
 }
 
 var protoName, params;
-console.log(initArgs);
 
-if(initArgs[0] == '-h' || initArgs[0] == '--help')
+if(initArgs.length == 1)
 {
-    console.log('');
-    console.log(options.getHelp());
+  if(initArgs[0] == '-h' || initArgs[0] == '--help')
+  {
+      console.log('');
+      console.log(options.getHelp());
+      shelljs.exit(1);
+  } else if(initArgs[0].indexOf('-') == -1) {
+    protoName = initArgs
+  } else {
+    console.log("parameter not valid".red + "\nrun " + "rp -h".green +" to see all the options");
     shelljs.exit(1);
-} else if(initArgs[0].indexOf('-') == -1) {
-  protoName = initArgs
+  }
 } else {
   params = args.parser(process.argv).parse(options);
   protoName = params.protoName;
