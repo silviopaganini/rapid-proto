@@ -70,7 +70,22 @@ if (!shelljs.which('git')) {
 }
 
 var versionOfPrototype = params.version;
-var urlToPull = versionOfPrototype == 'budo' ? "https://github.com/silviopaganini/rapid-prototype.git" : "https://github.com/silviopaganini/rapid-prototyping-jspm.git";
+var urlToPull = null;
+
+switch(versionOfPrototype)
+{
+  case "budo":
+    urlToPull = "https://github.com/silviopaganini/rapid-prototype.git";
+    break;
+
+  case "rje":
+    urlToPull = "https://github.com/silviopaganini/jspm-react-express-proto.git"
+    break;
+
+  default:
+    urlToPull = "https://github.com/silviopaganini/rapid-prototyping-jspm.git";
+    break;
+}
 
 if(shelljs.exec("git clone " + urlToPull + " " + protoName).code !==0)
 {

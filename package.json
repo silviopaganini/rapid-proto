@@ -1,6 +1,6 @@
 {
   "name": "rapid-proto",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "create rapid prototypes with a single command",
   "main": "index.js",
   "scripts": {
