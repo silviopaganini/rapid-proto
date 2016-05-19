@@ -5,8 +5,14 @@ var jsonfile = require('jsonfile')
 var colors   = require('colors');
 var fs       = require('fs');
 var args     = require('args');
+const VERSION = require('./package').version;
 
 var options = args.Options.parse([
+  {
+    name      : 'VERSION',
+    shortName : 'V',
+    help      : "version of this app",
+  },
   {
     name      : 'protoName',
     shortName : 'n',
@@ -15,8 +21,8 @@ var options = args.Options.parse([
   {
     name         : 'version',
     shortName    : 'v',
-    help         : "budo/npm or jspm",
-    defaultValue : 'budo'
+    help         : "budo/npm, jspm, rje (react + jspm + express)",
+    defaultValue : 'jspm'
   },
   {
     name         : 'help',
@@ -45,6 +51,10 @@ if(initArgs.length == 1)
       console.log('');
       console.log(options.getHelp());
       shelljs.exit(1);
+  } else if(initArgs[0] == '-V')
+  {
+    console.log('rapid-proto '.green + VERSION.bold.yellow);
+    shelljs.exit(1);
   } else if(initArgs[0].indexOf('-') == -1) {
     protoName = initArgs
   } else {
