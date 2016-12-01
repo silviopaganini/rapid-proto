@@ -21,7 +21,7 @@ var options = args.Options.parse([
   {
     name         : 'version',
     shortName    : 'v',
-    help         : "budo/npm, jspm, rje (react + jspm + express)",
+    help         : "bare (es6 bare boilerpate), budo/npm, jspm, rje (react + jspm + express)",
     defaultValue : 'jspm'
   },
   {
@@ -90,6 +90,10 @@ switch(versionOfPrototype)
 
   case "rje":
     urlToPull = "https://github.com/silviopaganini/jspm-react-express-proto.git"
+    break;
+    
+  case 'bare':
+    urlToPull = "https://github.com/silviopaganini/rapid-proto-es6-babel-bare.git"
     break;
 
   default:
