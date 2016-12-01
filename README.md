@@ -18,7 +18,7 @@ Need to install globally in order to have the command available everywhere.
 
 ```bash
 # rje = react + jspm + express
-rp -n [prototypeName] -v [budo, jspm, rje]
+rp -n [prototypeName] -v [bare, budo, jspm, rje]
 rp --help
 ```
 
